@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import InputText from '../components/InputText/InputText';
 import Radium from 'radium';
+import SelectOptions from '../components/SelectOptions/SelectOptions';
 
 const listaIRRF = [
   { salMin: 4664.69, tax: 0.2750, deducao: 869.36 },
@@ -24,6 +25,7 @@ function App() {
   const [valorIRRF, setValorIRRF] = useState({ value: 0, tax: 0 });
   const [outrosDescontos, setOutrosDescontos] = useState(0);
   const [salarioLiquido, setSalarioLiquido] = useState(0);
+  const [possuiOutrosDescontos, setPossuiOutrosDescontos] = useState("false");
 
   const style = {
     display: 'relative',
@@ -58,7 +60,9 @@ function App() {
     let salarioLiquidoFinal = salarioBruto - calculoINSS - calculoIRRF - outrosDescontos;
     setSalarioLiquido((salarioLiquidoFinal).toFixed(2));
 
-  }, [salarioBruto, dependentes, outrosDescontos]);
+    if (possuiOutrosDescontos === "false") setOutrosDescontos(0);
+
+  }, [salarioBruto, dependentes, outrosDescontos, possuiOutrosDescontos]);
 
   return (
     <div className="App" style={style}>
@@ -72,8 +76,15 @@ function App() {
         referente ao INSS e R$
         <InputText editable='readonly' value={valorIRRF.value} />
         (<InputText width='70px' editable='readonly' value={valorIRRF.tax} />%)
-        referente ao IRRF. Considerando que você possui outros descontos (plano de saúde, pensão alimentícia, etc) no valor de R$
-        <InputText value={outrosDescontos} changed={(event) => setOutrosDescontos(event.target.value)} />, seu salário líquido é de R$
+        referente ao IRRF. Considerando que você
+        <SelectOptions changed={(event) => setPossuiOutrosDescontos(event.target.value)} />
+         outros descontos (plano de saúde, pensão alimentícia, etc)
+        {(possuiOutrosDescontos === "true") ?
+          <> no valor de R$
+        <InputText value={outrosDescontos} changed={(event) => setOutrosDescontos(event.target.value)} />
+          </> : null
+        }
+        , seu salário líquido é de R$
         <InputText editable='readonly' value={salarioLiquido} />
         .</p>
     </div>

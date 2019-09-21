@@ -14,7 +14,7 @@ function InputText(props) {
         ':focus': { outline: 'none' }
     };
 
-    return (<><input readOnly={props.editable} value={props.value} onChange={props.changed} style={style} type='number' /></>);
+    return (<><input readOnly={props.editable} value={props.value} onChange={props.changed} style={style} type='number'/></>);
 }
 
 export default Radium(InputText);

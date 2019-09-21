@@ -24,3 +24,7 @@
 .App p input {
   border: 0;
 }
+
+.App select {
+  -webkit-appearance: none;
+}
