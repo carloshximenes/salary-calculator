@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/calculo-salario-liquido/static/css/main.dd541e96.chunk.css",
+    "main.js": "/calculo-salario-liquido/static/js/main.3540a7d8.chunk.js",
+    "main.js.map": "/calculo-salario-liquido/static/js/main.3540a7d8.chunk.js.map",
+    "runtime-main.js": "/calculo-salario-liquido/static/js/runtime-main.d96b06fc.js",
+    "runtime-main.js.map": "/calculo-salario-liquido/static/js/runtime-main.d96b06fc.js.map",
+    "static/js/2.b3d2eca1.chunk.js": "/calculo-salario-liquido/static/js/2.b3d2eca1.chunk.js",
+    "static/js/2.b3d2eca1.chunk.js.map": "/calculo-salario-liquido/static/js/2.b3d2eca1.chunk.js.map",
+    "index.html": "/calculo-salario-liquido/index.html",
+    "precache-manifest.a128c49244825403cd3beb9350f77450.js": "/calculo-salario-liquido/precache-manifest.a128c49244825403cd3beb9350f77450.js",
+    "service-worker.js": "/calculo-salario-liquido/service-worker.js",
+    "static/css/main.dd541e96.chunk.css.map": "/calculo-salario-liquido/static/css/main.dd541e96.chunk.css.map"
+  }
+}
