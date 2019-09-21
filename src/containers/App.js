@@ -26,9 +26,10 @@ function App() {
   const [salarioLiquido, setSalarioLiquido] = useState(0);
 
   const style = {
-    display: 'flex',
+    display: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: '10%',
     fontWeight: '300',
     fontSize: '1.4rem',
     letterSpacing: '1px',
@@ -38,16 +39,19 @@ function App() {
   };
 
   useEffect(() => {
+    // Calculo do valor cobrado pelo INSS
     let tetoSalarioBruto = (salarioBruto > 5839.45) ? 5839.45 : salarioBruto;
     let baseINSS = listaINSS.find(base => base.salMin <= tetoSalarioBruto) || 0;
     let calculoINSS = (tetoSalarioBruto * baseINSS.tax);
     setValorINSS({ value: calculoINSS.toFixed(2), tax: baseINSS.tax.toFixed(2) * 100 });
 
+    // Calculo do valor deduzido pelo número de dependentes
     let valorDependentes = dependentes * 189.59;
+
     let novoSalarioBruto = salarioBruto - calculoINSS - valorDependentes;
+    novoSalarioBruto = (novoSalarioBruto < 0) ? 0 : novoSalarioBruto;
 
-
-    let baseIRRF = listaIRRF.find(base => base.salMin <= novoSalarioBruto) || 0;
+    let baseIRRF = listaIRRF.find(base => base.salMin <= novoSalarioBruto);
     let calculoIRRF = (novoSalarioBruto * baseIRRF.tax) - baseIRRF.deducao;
     setValorIRRF({ value: calculoIRRF.toFixed(2), tax: (baseIRRF.tax * 100).toFixed(2) });
 
