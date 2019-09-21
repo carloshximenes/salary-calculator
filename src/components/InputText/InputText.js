@@ -3,10 +3,10 @@ import Radium from 'radium';
 
 function InputText(props) {
     const style = {
-        border: '0',
-        borderBottom: '2px dotted #66bb6a',
+        borderBottom: '2px dotted',
+        borderColor: (props.editable === 'readonly') ? 'tomato' : '#66bb6a',
         fontWeight: '300',
-        width: '120px',
+        width: (props.width === undefined) ? '120px' : props.width,
         fontSize: '1.4rem',
         textAlign: 'right',
         marginRight: '0.2em',
@@ -14,7 +14,7 @@ function InputText(props) {
         ':focus': { outline: 'none' }
     };
 
-    return (<><input readonly={props.editable} value={props.value} onChange={props.changed} style={style} type='number' /></>);
+    return (<><input readOnly={props.editable} value={props.value} onChange={props.changed} style={style} type='number' /></>);
 }
 
 export default Radium(InputText);

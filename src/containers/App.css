@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.App p {
+  width: 55%;
+}
+
+.App p input {
+  border: 0;
+}
