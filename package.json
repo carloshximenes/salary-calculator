@@ -2,7 +2,7 @@
   "name": "salary-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://carloshximenes.github.io/calculo-salario-liquido",
+  "homepage": "https://carloshximenes.github.io/salary-calculator/",
   "dependencies": {
     "radium": "0.26.0",
     "react": "16.9.0",
